@@ -1,66 +1,101 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<a href="https://github.com/bezhansalleh/filament-shield" class="filament-hidden">
+<img style="width: 100%; max-width: 100%;" alt="filament-shield-art" src="https://user-images.githubusercontent.com/10007504/148662315-35d4bd74-fc1c-4f8c-8c02-689309b414b0.png" >
+</a>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<p align="center" class="flex items-center justify-center">
+    <a href="https://filamentadmin.com/docs/2.x/admin/installation">
+        <img alt="FILAMENT 8.x" src="https://img.shields.io/badge/FILAMENT-3.x-EBB304?style=for-the-badge">
+    </a>
+    <a href="https://packagist.org/packages/bezhansalleh/filament-shield">
+        <img alt="Packagist" src="https://img.shields.io/packagist/v/bezhansalleh/filament-shield.svg?style=for-the-badge&logo=packagist">
+    </a>
+    <a href="https://github.com/bezhansalleh/filament-shield/actions?query=workflow%3Arun-tests+branch%3A3.x">
+        <img alt="Tests Passing" src="https://img.shields.io/github/actions/workflow/status/bezhansalleh/filament-shield/run-tests.yml?style=for-the-badge&logo=github&label=tests" class="filament-hidden">
+    </a>
+    <a href="https://github.com/bezhansalleh/filament-shield/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3A3.x" class="filament-hidden">
+        <img alt="Code Style Passing" src="https://img.shields.io/github/actions/workflow/status/bezhansalleh/filament-shield/laravel-pint.yml?style=for-the-badge&logo=github&label=code%20style">
+    </a>
+
+<a href="https://packagist.org/packages/bezhansalleh/filament-shield">
+    <img alt="Downloads" src="https://img.shields.io/packagist/dt/bezhansalleh/filament-shield.svg?style=for-the-badge" >
+    </a>
 </p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+> Proteksi, otorisasi, dan pengelolaan peran pengguna yang canggih dengan [Filament Shield](https://filamentphp.com/plugins/bezhansalleh-shield).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Filament Shield adalah plugin untuk [Filament Admin](https://filamentphp.com/) yang memungkinkan Anda dengan mudah membuat **Role-Based Access Control (RBAC)** dengan fungsionalitas otorisasi yang mudah dikelola. Plugin ini memungkinkan Anda menentukan **izin pengguna, peran, dan pengelolaan akses pengguna** secara efisien.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 🚀 **Fitur Utama**
+- 🔐 **Akses Berbasis Peran** (Role-Based Access Control)
+- ⚙️ **Generator Izin Otomatis** untuk resource, halaman, dan widget.
+- 📄 **Dukungan Custom Policy**.
+- 🔍 **Pengelolaan Izin dan Peran** langsung dari antarmuka Filament.
+- 💾 **Mudah disimpan dan disinkronkan** menggunakan cache.
+- 📦 **Migrasi, seeder, dan perintah artisan** untuk pengaturan cepat.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 📥 **Instalasi**
+Untuk mulai menggunakan **Filament Shield**, ikuti langkah-langkah berikut.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Install package:
+```bash
+composer require bezhansalleh/filament-shield
+``````
+Setelah itu, jalankan perintah instalasi:
+```bash
+php artisan shield:install
+``````
+Jalankan migrasi untuk membuat tabel peran dan izin:
+```bash
+php artisan migrate
+``````
+Untuk membuat peran default dan izin yang diperlukan, Anda dapat menggunakan:
+```bash
+php artisan shield:generate
+``````
+## 📚 **Daftar Perintah Artisan**
 
-## Laravel Sponsors
+| Perintah                        | Deskripsi                               | Contoh Penggunaan            |
+|---------------------------------|-----------------------------------------|------------------------------|
+| `php artisan migrate`           | Menjalankan migrasi database            | `php artisan migrate`         |
+| `php artisan shield:install`    | Instalasi Filament Shield               | `php artisan shield:install`  |
+| `php artisan shield:generate`   | Membuat peran dan izin secara otomatis  | `php artisan shield:generate` |
+| `php artisan config:cache`      | Meng-cache konfigurasi Laravel          | `php artisan config:cache`    |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 📦 **Pengaturan File Konfigurasi**
+Setelah menjalankan perintah `php artisan shield:install`, file config/shield.php akan dibuat. Anda dapat mengatur preferensi plugin di sini, termasuk menentukan model pengguna, peran default, dan izin default.
 
-### Premium Partners
+## ❓ Masalah Umum dan Solusinya
+### 🔴 **1. Kolom `team_id` Tidak Ditemukan**
+**Error:**
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'team_id'
+**Solusi:**
+- Pastikan kolom `team_id` ada di tabel `model_has_roles`.
+- Jika tidak menggunakan multi-team, atur `teams => false` di file **config/permission.php**.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### 🔴 **2. Artisan Shield Tidak Berjalan**
+**Error:**
+Command "shield:install" is not defined.
+**Solusi:**
+- Pastikan **composer install** telah dijalankan.
+- Periksa apakah paket **bezhansalleh/filament-shield** telah terinstal.
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+##  **Credits**
+- [Bezhan Salleh](https://github.com/bezhanSalleh)
+- [All Contributors](../../contributors)
+- 
+##  **Lisensi**
+Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file [LICENSE](https://mit-license.org) untuk informasi lebih lanjut.
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
