@@ -89,7 +89,7 @@ Command "shield:install" is not defined.
 ##  **Credits**
 - [Bezhan Salleh](https://github.com/bezhanSalleh)
 - [All Contributors](../../contributors)
-- 
+  
 ##  **Lisensi**
 Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file [LICENSE](https://mit-license.org) untuk informasi lebih lanjut.
 
