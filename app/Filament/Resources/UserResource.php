@@ -7,13 +7,14 @@ use App\Filament\Resources\UserResource\RelationManagers;
 use App\Models\User;
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Forms\FormsComponent;
+use Filament\Forms\Components\Select;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Forms\Components\TextInput;
 
 class UserResource extends Resource
 {
@@ -25,16 +26,17 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\TextInput::make('email')->email()->unique(ignoreRecord: true),
-                Forms\Components\Select::make('roles')
-      ->relationship('roles', 'name')
-      ->saveRelationshipsUsing(function (Model $record, $state) {
-           $record->roles()->syncWithPivotValues($state, [config('permission.column_names.team_foreign_key') => getPermissionsTeamId()]);
-      })
-     ->multiple()
-     ->preload()
-     ->searchable(),
+                TextInput::make('name')->required(),
+                TextInput::make('email')->email()->unique(ignoreRecord: true),
+                TextInput::make('password')->password()->revealable(),
+                Select::make('roles')
+                    ->relationship('roles', 'name')
+                    ->saveRelationshipsUsing(function (Model $record, $state) {
+                        $record->roles()->syncWithPivotValues($state, [config('permission.column_names.team_foreign_key') => getPermissionsTeamId()]);
+                    })
+                    ->multiple()
+                    ->preload()
+                    ->searchable(),
             ]);
     }
 
